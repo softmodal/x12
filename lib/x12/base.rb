@@ -27,6 +27,9 @@ module X12
   #
   # Base class for Segment, Composite, and Loop. Contains setable
   # segment_separator, field_separator, and composite_separator fields.
+  class << self
+    attr_accessor :segment_separator, :field_separator, :composite_separator
+  end
 
   class Base
 
@@ -42,9 +45,9 @@ module X12
       @next_repeat = nil        # Next repeat of the same element, if any
       @parsed_str = nil
 
-      @segment_separator   = '~'
-      @field_separator     = '*'
-      @composite_separator = ':'
+      @segment_separator   = X12.segment_separator || '~'
+      @field_separator     = X12.field_separator || '*'
+      @composite_separator = X12.composite_separator || ':'
 
       #puts "Created #{name} #{object_id} #{self.class}  "
     end
