@@ -1,0 +1,111 @@
+<!--
+   This file is part of the X12Parser library that provides tools to
+   manipulate X12 messages using Ruby native syntax.
+
+   http://x12parser.rubyforge.org 
+   
+   Copyright (C) 2009 APP Design, Inc.
+
+   This library is free software; you can redistribute it and/or
+   modify it under the terms of the GNU Lesser General Public
+   License as published by the Free Software Foundation; either
+   version 2.1 of the License, or (at your option) any later version.
+
+   This library is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+   Lesser General Public License for more details.
+
+   You should have received a copy of the GNU Lesser General Public
+   License along with this library; if not, write to the Free Software
+   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+
+   $Id: 997single.xml 85 2009-05-13 19:17:51Z ikk $
+-->
+
+<!-- 
+     This is an example of a message definition contained in one big
+     file.  The main loop is here along with all other definitions, i.e.,
+     segments, composites, and validation tables.
+-->
+
+<Definition>
+  <Loop name="404" comment="Rail carrier shipment information">
+    <Segment name="ISA" min="1" max="1"/>
+    <Segment name="GS" min="1" max="1"/>
+    <Segment name="ST"  max="1" />
+    <Segment name="ZC1"  max="1" />
+    <Segment name="BX" max="1" />
+    <Segment name="BNX" max="1" />
+    <Segment name="M3" max="1" required="y" />
+    <Segment name="N9" max="10" required="y" />
+    <Segment name="CM" max="2" />
+    <Segment name="DTM" max="5" />
+    
+    <Loop name="N7Loop" max="200">
+      <Segment name="N7" max="1" required="y" />
+      <Segment name="M7" max="5" />
+      <Segment name="M12" max="2" />
+    </Loop>
+
+    <Segment name="F9" max="1" required="y" />
+    <Segment name="D9" max="1" required="y" />
+
+    <Loop name="N1Loop" max="15">
+      <Segment name="N1" max="1" required="y" />
+      <Segment name="N3" max="2" />
+      <Segment name="N4" max="1" />
+      <Segment name="PER" max="2" />
+    </Loop>
+
+    <Segment name="R2" max="6" required="y" />
+    <Segment name="H3" max="20" />
+    <Segment name="PS" max="5" />
+    
+    <Loop name="LXLoop" max="20">
+      <Segment name="LX" max="1" required="y" />
+      <Segment name="L5" max="15" required="y" />
+      
+      <Loop name="L0Loop" max="20">
+        <Segment name="L0" max="1" />
+      </Loop>
+      
+      <Loop name="PILoop" max="6">
+        <Segment name="PI" max="1" />
+      </Loop>
+      <Segment name="X1" max="6" />
+    </Loop>
+
+    <Loop name="LSLoop" max="1">
+      <Segment name="LS" max="1" />
+      
+      <Loop name="LH1Loop" max="99">
+        <Segment name="LH1" max="1" />
+        <Segment name="LH2" max="2" />
+        <Segment name="LH3" max="10" />
+        <Segment name="LFH" max="20" />
+        <Segment name="LH4" max="4" />
+        <Segment name="LHT" max="3" />
+        <Segment name="LHR" max="5" />
+        <Segment name="PER" max="5" />
+        
+        <Loop name="N1Loop" max="1">
+          <Segment name="N1" max="1" />
+          <Segment name="N3" max="2" />
+          <Segment name="N4" max="1" />
+          <Segment name="PER" max="2" />
+        </Loop>
+        <Segment name="LE" max="1" required="y" />
+        
+      </Loop>
+    </Loop>
+    
+    <Segment name="PER" max="5" />
+    <Segment name="LH2" max="2" />
+    <Segment name="LHR" max="1" />
+    <Segment name="LH6" max="5" />
+    <Segment name="SE" max="1" required="y" />
+    <Segment name="GE" min="1" max="1" required="y"/>
+
+  </Loop>
+</Definition>
