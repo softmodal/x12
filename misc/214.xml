@@ -1,0 +1,56 @@
+<!--
+   This file is part of the X12Parser library that provides tools to
+   manipulate X12 messages using Ruby native syntax.
+
+   http://x12parser.rubyforge.org 
+   
+   Copyright (C) 2009 APP Design, Inc.
+
+   This library is free software; you can redistribute it and/or
+   modify it under the terms of the GNU Lesser General Public
+   License as published by the Free Software Foundation; either
+   version 2.1 of the License, or (at your option) any later version.
+
+   This library is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+   Lesser General Public License for more details.
+
+   You should have received a copy of the GNU Lesser General Public
+   License along with this library; if not, write to the Free Software
+   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+
+   $Id: 214.xml 85 2017-10-26 19:17:51Z ikk $
+-->
+
+<!--
+  This is an example of a message definition spread among several
+  files: main loop is here, all other definitions, i.e., segments,
+  composites, validation tables live in separate files.
+-->
+
+<Definition>
+  <Loop name="214" comment="Motor carrier load status updates">
+    <Segment name="ST" max="1"/>
+    <Segment name="B10" max="1"/>
+    <Segment name="L11" max="300"/>
+    
+    <Loop name="N1Loop" max="10">
+      <Segment name="N1" max="1" />
+      <Segment name="N3" max="2" />
+      <Segment name="N4" max="1" />
+      <Segment name="G61" max="3" />
+    </Loop>
+    
+    <Loop name="LXLoop" max="9999">
+      <Segment name="LX" max="1" />
+      <Loop name="AT7Loop" max="10">
+        <Segment name="AT7" max="1" />
+        <Segment name="MS2" max="1" />
+      </Loop>
+      <Segment name="AT8" max="10" />
+    </Loop>
+    
+    <Segment name="SE"  max="1" required="y"/>
+  </Loop>
+</Definition>
