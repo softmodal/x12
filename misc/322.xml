@@ -1,0 +1,52 @@
+<!--
+   This file is part of the X12Parser library that provides tools to
+   manipulate X12 messages using Ruby native syntax.
+
+   http://x12parser.rubyforge.org 
+   
+   Copyright (C) 2009 APP Design, Inc.
+
+   This library is free software; you can redistribute it and/or
+   modify it under the terms of the GNU Lesser General Public
+   License as published by the Free Software Foundation; either
+   version 2.1 of the License, or (at your option) any later version.
+
+   This library is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+   Lesser General Public License for more details.
+
+   You should have received a copy of the GNU Lesser General Public
+   License along with this library; if not, write to the Free Software
+   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+
+   $Id: 322.xml 85 2009-05-13 19:17:51Z ikk $
+-->
+
+<!--
+  This is an example of a message definition spread among several
+  files: main loop is here, all other definitions, i.e., segments,
+  composites, validation tables live in separate files.
+-->
+
+<Definition>
+  <Loop name="322" comment="Terminal Operations and Intermodal Ramp Activity">
+    <Segment name="ST" max="1" required="y"/>
+    <Segment name="Q5" max="1" required="y"/>
+    <Loop name="N7Loop" max="1000">
+      <Segment name="N7" max="1" required="y"/>
+      <Segment name="DTM" max="3"/>
+      <Segment name="M7" max="5"/>
+      <Segment name="W2" max="1"/>
+      <Segment name="NA" max="30"/>
+      <Loop name="R4Loop" max="20">
+        <Segment name="R4" max="1" required="y"/>
+      </Loop>
+      <Loop name="N1Loop" max="10">
+        <Segment name="N1" max="1"/>
+      </Loop>
+      <Segment name="N9" max="10"/>
+    </Loop>
+    <Segment name="SE"  max="1" required="y"/>
+  </Loop>
+</Definition>
