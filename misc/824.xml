@@ -31,6 +31,7 @@
 
 <Definition>
   <Loop name="824" comment="Application Advice">
+    <Segment name="GS" min="1" max="1"/>
     <Segment name="ST" max="1"/>
     <Segment name="BGN" max="1"/>
     <Loop name="OTILoop" max="999">
@@ -41,6 +42,8 @@
         <Segment name="TED" max="1"/>
       </Loop>
     </Loop>
-    <Segment name="SE"  max="1" required="y"/>
+    <Segment name="SE" max="1" required="y"/>
+    <Segment name="GE" min="1" max="1"/>
+    
   </Loop>
 </Definition>
