@@ -1,0 +1,71 @@
+<!--
+   This file is part of the X12Parser library that provides tools to
+   manipulate X12 messages using Ruby native syntax.
+
+   http://x12parser.rubyforge.org 
+   
+   Copyright (C) 2018 Softmodal, LLC
+
+   This library is free software; you can redistribute it and/or
+   modify it under the terms of the GNU Lesser General Public
+   License as published by the Free Software Foundation; either
+   version 2.1 of the License, or (at your option) any later version.
+
+   This library is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+   Lesser General Public License for more details.
+
+   You should have received a copy of the GNU Lesser General Public
+   License along with this library; if not, write to the Free Software
+   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+
+   $Id: 210.xml 85 2009-05-13 19:17:51Z ikk $
+-->
+
+<!-- 
+     This is an example of a message definition contained in one big
+     file.  The main loop is here along with all other definitions, i.e.,
+     segments, composites, and validation tables.
+-->
+
+<Definition>
+  <Loop name="210" comment="Motor Carrier Freight Details and Invoice">
+    <Segment name="ISA" min="1" max="1"/>
+    <Segment name="GS" min="1" max="1"/>
+    <Segment name="ST" min="1" max="1" />
+		
+		
+		<Segment name="B3" min="1" max="1" />
+		<Segment name="C2" max="1" />
+		<Segment name="C3" max="1" />
+		<Segment name="N9" max="300" />
+		<Segment name="G62" max="6" />
+		<Segment name="R3" max="12" />
+		<Segment name="H3" max="6" />
+		<Segment name="K1" max="10" />
+		
+    <Loop name="N1Loop" max="10">
+      <Segment name="N1" max="1" />
+      <Segment name="N3" max="2" />
+      <Segment name="N4" max="1" />
+      <Segment name="N9" max="5" />
+    </Loop>
+
+    <Loop name="LXLoop" max="999">
+      <Segment name="LX" max="1" required="y" />
+      <Segment name="L5" max="30" required="y" />
+      <Segment name="L0" max="10" />
+      <Segment name="L1" max="10" />
+      <Segment name="L7" max="10" />
+      <Segment name="K1" max="10" />
+    </Loop>
+
+    <Segment name="L3" max="1" />
+
+
+    <Segment name="SE" max="1" required="y" />
+    <Segment name="GE" min="1" max="1" required="y"/>
+    <Segment name="IEA" min="1" max="1"/>
+  </Loop>
+</Definition>
