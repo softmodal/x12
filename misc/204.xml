@@ -38,6 +38,8 @@
     <Segment name="B2A" max="1" />
     <Segment name="L11" max="50" />
     <Segment name="G62" max="1" />
+    <Segment name="AT5" max="6" />
+    <Segment name="LH6" max="6" />
     <Segment name="MS3" max="1" />
     <Segment name="NTE" max="10" />
 
@@ -57,10 +59,12 @@
       <Segment name="S5" max="1" required="y" />
       <Segment name="L11" max="50" />
       <Segment name="G62" max="2" />
+      <Segment name="PLD" max="1" />
       <Segment name="NTE" max="20" />
       
       <Loop name="N1Loop" max="1">
         <Segment name="N1" max="1" />
+        <Segment name="N2" max="1" />
         <Segment name="N3" max="2" />
         <Segment name="N4" max="1" />
         <Segment name="G61" max="3" />
