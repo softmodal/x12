@@ -22,10 +22,6 @@
 #++
 #
 
-require "rexml/document"
-
-require 'pp'
-
 module X12
 
   # $Id: Parser.rb 89 2009-05-13 19:36:20Z ikk $
@@ -50,25 +46,29 @@ module X12
                   'COM4',
                  ]
 
+    # Fixes up the file name so we don't worry about DOS files
+    def self.sanitized_file_name(name)
+      # Deal with Microsoft devices
+      base_name = File.basename(name, '.xml')
+      if MS_DEVICES.include? base_name
+        File.join(File.dirname(name), "#{base_name}_.xml")
+      else
+        name
+      end
+    end
+
+
     # Creates a parser out of a definition
     def initialize(file_name)
       save_definition = @x12_definition
 
-      # Deal with Microsoft devices
-      base_name = File.basename(file_name, '.xml')
-      if MS_DEVICES.find{|i| i == base_name}
-        file_name = File.join(File.dirname, "#{base_name}_.xml")
-      end
-      #puts "Reading definition from #{file_name}"
-
       # Read and parse the definition
-      str = File.open(file_name, 'r').read
+      str = File.open(X12::Parser.sanitized_file_name(file_name), 'r').read
       @dir_name = File.dirname(File.expand_path(file_name)) # to look up other files if needed
       @x12_definition = X12::XMLDefinitions.new(str)
 
       # Populate fields in all segments found in all the loops
       @x12_definition[X12::Loop].each_pair{|k, v|
-        #puts "Populating definitions for loop #{k}"
         process_loop(v)
       } if @x12_definition[X12::Loop]
 
@@ -83,13 +83,11 @@ module X12
         }
       end
 
-      #puts PP.pp(self, '')
     end # initialize
 
     # Parse a loop of a given name out of a string. Throws an exception if the loop name is not defined.
     def parse(loop_name, str)
       loop = @x12_definition[X12::Loop][loop_name]
-      #puts "Loops to parse #{@x12_definition[X12::Loop].keys}"
       throw Exception.new("Cannot find a definition for loop #{loop_name}") unless loop
       loop = loop.dup
       loop.parse(str)
@@ -123,7 +121,6 @@ module X12
 
     # Instantiate segment's fields as previously defined
     def process_segment(segment)
-      #puts "Trying to process segment #{segment.inspect}"
       unless @x12_definition[X12::Segment] && @x12_definition[X12::Segment][segment.name]
         # Try to find it in a separate file if missing from the @x12_definition structure
         initialize(File.join(@dir_name, segment.name+'.xml'))

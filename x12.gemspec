@@ -17,4 +17,12 @@ Gem::Specification.new do |s|
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
+
+  s.add_dependency 'nokogiri'
+
+  s.add_development_dependency('rdoc')
+  s.add_development_dependency('rspec')
+  s.add_development_dependency('awesome_print')
+  s.add_development_dependency('rake')
+  s.add_development_dependency('byebug') if RUBY_VERSION =~ /^2/
 end
