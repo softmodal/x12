@@ -31,6 +31,7 @@
 
 <Definition>
   <Loop name="997" comment="This X12 Transaction Set contains the format and establishes the data contents of the Functional Acknowledgment Transaction Set (997) for use within the context of an Electronic Data Interchange (EDI) environment. The transaction set can be used to define the control structures for a set of acknowledgments to indicate the results of the syntactical analysis of the electronically encoded documents. The encoded documents are the transaction sets, which are grouped in functional groups, used in defining transactions for business data interchange. This standard does not cover the semantic meaning of the information encoded in the transaction sets.">
+    <Segment name="ISA" min="1" max="1"/>
     <Segment name="GS" min="1" max="1"/>
     <Segment name="ST"  max="1">
       <Field name="TransactionSetIdentifierCode" const="997" min="3" max="3" validation="T143" comment="Code uniquely identifying a Transaction Set"/>
@@ -48,5 +49,6 @@
     <Segment name="AK9" max="1" required="y"/>
     <Segment name="SE"  max="1" required="y"/>
     <Segment name="GE" min="1" max="1"/>
+    <Segment name="IEA" min="1" max="1"/>
   </Loop>
 </Definition>
