@@ -48,8 +48,10 @@
       <Segment name="LX" max="1" />
       <Loop name="AT7Loop" max="10">
         <Segment name="AT7" max="1" />
+        <Segment name="MS1" max="1" />
         <Segment name="MS2" max="1" />
       </Loop>
+      <Segment name="L11" max="1"/>
       <Segment name="AT8" max="10" />
     </Loop>
     
