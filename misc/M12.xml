@@ -35,4 +35,7 @@
   <Field name="ReferenceIdentification" required="y" min="1" max="50" comment="Reference information as defined for a particular Transaction Set or as specified by the Reference Identification Qualifier"/>
   <Field name="TransportationMethodTypeCode" required="y" min="1" max="2" validation="T91" comment="Code specifying the method or type of transportation for the shipment"/>
   <Field name="VesselName" required="y" min="2" max="28" comment="Name of ship as documented in &quot;Lloyd's Register of Ships&quot;"/>
+  <Field name="YesNoConditional" min="1" max="1"/>
+  <Field name="Date" min="8" max="8"/>
+  <Field name="LocationIdentifier3" required="y" min="1" max="30" comment="Code which identifies a specific location"/>
 </Segment>
