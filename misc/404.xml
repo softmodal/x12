@@ -76,6 +76,8 @@
       <Segment name="X1" max="6" />
     </Loop>
 
+    <Segment name="L3" max="1" />
+
     <Loop name="LSLoop" max="1">
       <Segment name="LS" max="1" />
       
