@@ -47,6 +47,7 @@
       <Loop name="N1Loop" max="10">
         <Segment name="N1" max="1"/>
       </Loop>
+      <Segment name="K1" max="2" />
       <Segment name="N9" max="10"/>
     </Loop>
     <Segment name="SE"  max="1" required="y"/>
