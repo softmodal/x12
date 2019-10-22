@@ -42,8 +42,11 @@
       <Segment name="N3" max="2" />
       <Segment name="N4" max="1" />
       <Segment name="G61" max="3" />
+      <Segment name="G62" max="1" />
     </Loop>
     
+    <Segment name="MS3" max="12" />
+
     <Loop name="LXLoop" max="9999">
       <Segment name="LX" max="1" />
       <Loop name="AT7Loop" max="10">
