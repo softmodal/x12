@@ -86,6 +86,7 @@
         <Segment name="LH2" max="2" />
         <Segment name="LH3" max="10" />
         <Segment name="LFH" max="20" />
+        <Segment name="LEP" max="3" />
         <Segment name="LH4" max="4" />
         <Segment name="LHT" max="3" />
         <Segment name="LHR" max="5" />
@@ -97,9 +98,8 @@
           <Segment name="N4" max="1" />
           <Segment name="PER" max="2" />
         </Loop>
-        <Segment name="LE" max="1" required="y" />
-        
       </Loop>
+      <Segment name="LE" max="1" required="y" />
     </Loop>
     
     <Segment name="PER" max="5" />
