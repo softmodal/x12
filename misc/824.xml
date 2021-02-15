@@ -41,6 +41,7 @@
       <Segment name="DTM" max="2"/>
       <Loop name="TEDLoop" max="999">
         <Segment name="TED" max="1"/>
+        <Segment name="NTE" max="100"/>
       </Loop>
     </Loop>
     <Segment name="SE" max="1" required="y"/>
