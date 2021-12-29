@@ -38,7 +38,7 @@
     <Segment name="BX" max="1" />
     <Segment name="BNX" max="1" />
     <Segment name="M3" max="1" required="y" />
-    <Segment name="N9" max="10" required="y" />
+    <Segment name="N9" max="30" required="y" />
     <Segment name="CM" max="2" />
     <Segment name="DTM" max="5" />
     
@@ -46,6 +46,13 @@
       <Segment name="N7" max="1" required="y" />
       <Segment name="M7" max="5" />
       <Segment name="M12" max="2" />
+      
+      <Loop name="REFLoop" max="99">
+        <Segment name="REF" max="1" />
+        <Segment name="N9" max="30" />
+        <Segment name="N10" max="15" />
+      </Loop>
+      
     </Loop>
 
     <Segment name="F9" max="1" required="y" />
