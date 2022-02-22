@@ -43,6 +43,7 @@
       <Segment name="NA" max="30"/>
       <Loop name="R4Loop" max="20">
         <Segment name="R4" max="1" required="y"/>
+        <Segment name="DTM" max="3"/>
       </Loop>
       <Loop name="N1Loop" max="10">
         <Segment name="N1" max="1"/>
