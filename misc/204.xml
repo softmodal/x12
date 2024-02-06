@@ -62,6 +62,7 @@
       <Segment name="L11" max="50" />
       <Segment name="G62" max="2" />
       <Segment name="AT8" max="1" />
+      <Segment name="LAD" max="5" />
       <Segment name="AT5" max="6" />
       <Segment name="PLD" max="1" />
       <Segment name="NTE" max="20" />
