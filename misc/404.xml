@@ -103,6 +103,7 @@
           <Segment name="N1" max="1" />
           <Segment name="N3" max="2" />
           <Segment name="N4" max="1" />
+          <Segment name="REF" max="2" />
           <Segment name="PER" max="2" />
         </Loop>
       </Loop>
